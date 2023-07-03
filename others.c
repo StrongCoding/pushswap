@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:08:29 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/03 14:59:43 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/03 15:48:03 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,32 @@ int	*ft_new_number(int number)
 	ptr_number = malloc(sizeof(int));
 	*ptr_number = number;
 	return (ptr_number);
+}
+
+int	ft_fill_s(t_list **stack_a, t_list **stack_b, int argc, char **argv)
+{
+	char	**splitted;
+	int		error;
+	int		i;
+
+	error = 0;
+	if (argc > 2)
+	{
+		i = 1;
+		*stack_a = ft_lstnew(ft_new_number(ft_atoi_special(argv[1], &error)));
+		while (++i < argc)
+			ft_lstadd_back(stack_a,
+				ft_lstnew(ft_new_number(ft_atoi_special(argv[i], &error))));
+	}
+	if (argc == 2)
+	{
+		i = 0;
+		splitted = ft_split(argv[1], ' ');
+		*stack_a = ft_lstnew(
+				ft_new_number(ft_atoi_special(splitted[0], &error)));
+		while (splitted[++i])
+			ft_lstadd_back(stack_a,
+				ft_lstnew(ft_new_number(ft_atoi_special(splitted[i], &error))));
+	}
+	return (error);
 }
