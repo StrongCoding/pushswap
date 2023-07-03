@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:38:12 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/06/22 17:40:02 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/03 06:40:46 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,11 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include "ft_printf/ft_printf.h"
+
+void	ft_printlist(t_list **list);
+void	ft_swap(t_list **stack);
+void	ft_push(t_list *stack);
+void	ft_rotate(t_list **stack);
+void	ft_reverse_rotate(t_list **stack);
 
 #endif
