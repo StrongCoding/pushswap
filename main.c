@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:37:46 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/03 08:52:57 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/03 10:16:59 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,46 +42,26 @@ int	main(int argc, char **argv)
 	}
 	if (argc == 2)
 		ft_printf("hier muss ich splitten\n");
-	printf("stack_a: %i adress: %p next-> %p\n", *(int *)stack_a->content, stack_a, stack_a->next);	tmp = stack_a;
-	while (tmp->next != NULL)
-	{
-		tmp = tmp->next;
-		printf("stack_a: %i adress: %p next-> %p\n", *(int *)tmp->content, tmp, tmp->next);
-	}
-	printf("\n");
-	//ft_reverse_rotate(&stack_a);
+	ft_print_stacks(&stack_a, &stack_b);
 	ft_push(&stack_a, &stack_b);
+	printf("push b\n");
+	ft_print_stacks(&stack_a, &stack_b);
 	ft_push(&stack_a, &stack_b);
-	printf("stack_b: %i\n", *(int *)stack_b->content);
-	printf("2x push wurde ausgefuehrt!\n");
-	printf("stack_a: %i\n", *(int *)stack_a->content);
-	printf("stack_a: %i adress: %p next-> %p\n", *(int *)stack_a->content, stack_a, stack_a->next);
-	tmp = stack_a;
-	while (tmp->next != NULL && j++ < 10)
-	{
-		tmp = tmp->next;
-		printf("stack_a: %i adress: %p next-> %p\n", *(int *)tmp->content, tmp, tmp->next);
-		j++;
-	}
-	j = 0;
-	printf("\n");
-
-	printf("stack_b: %i\n", *(int *)stack_b->content);
-	tmp = stack_b;
-	while (tmp->next != NULL)
-	{
-		tmp = tmp->next;
-		printf("stack_b: %i\n", *(int *)tmp->content);
-	}
-	printf("\n");
-	//ft_reverse_rotate(&stack_b);
-	printf("stack_b: %i adress: %p next-> %p\n", *(int *)stack_b->content, stack_b, stack_b->next);
-	tmp = stack_b;
-	while (tmp->next != NULL && j++ < 10)
-	{
-		tmp = tmp->next;
-		printf("stack_b: %i adress: %p next-> %p\n", *(int *)tmp->content, tmp, tmp->next);
-		j++;
-	}
+	printf("push b\n");
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_reverse_rotate(&stack_b);
+	ft_reverse_rotate(&stack_a);
+	printf("reverse rotate\n");
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_push(&stack_a, &stack_b);
+	printf("push b\n");
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_reverse_rotate(&stack_b);
+	ft_reverse_rotate(&stack_a);
+	printf("reverse rotate\n");
+	ft_print_stacks(&stack_a, &stack_b);
+	ft_push(&stack_b, &stack_a);
+	printf("push a\n");
+	ft_print_stacks(&stack_a, &stack_b);
 }
 //ft_fill_list()
