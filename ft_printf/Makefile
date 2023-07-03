@@ -16,7 +16,7 @@ CCFLAGS := -Wall -Wextra -Werror
 all:$(NAME)
 
 $(NAME): $(OBJ)
-	$(MAKE) -C libft
+	$(MAKE) bonus -C libft
 	cp libft/libft.a $(NAME)
 	ar rcs $(NAME) $(OBJ)
 $(OBJ):
