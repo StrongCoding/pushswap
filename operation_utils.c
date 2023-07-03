@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:03:47 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/03 06:38:20 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/03 07:01:17 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,13 @@ void	ft_reverse_rotate(t_list **stack)
 		return ;
 	tmp = *stack;
 	tmp2 = *stack;
-	*stack = (*stack)->next;
 	//printf("before stack adress: %p stack->next: %p stack->next-next: %p\n", *stack, (*stack)->next,(*stack)->next->next);
-	while (tmp->next != NULL)
+	while (tmp->next->next != NULL)
 		tmp = tmp->next;
-	tmp->next = tmp2;
-	tmp2->next = NULL;
+	//tmp->next ist das letzte Element also muss das auf erste
+	*stack = tmp->next;
+	(*stack)->next = tmp2;
+	tmp->next = NULL;
+	//*stack = tmp->next;
 	//printf("after stack adress: %p stack->next: %p stack->next->next: %p\n", *stack, (*stack)->next, (*stack)->next->next);
 }
