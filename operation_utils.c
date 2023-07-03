@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:03:47 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/03 08:53:31 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/03 09:21:00 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ void	ft_push(t_list **stack_src, t_list **stack_dst)
 		return ;
 	if (*stack_dst == NULL)
 	{
-		printf("stack_dst is leer!\n");
+		//printf("stack_dst is leer!\n");
 		*stack_dst = *stack_src;
 		*stack_src = (*stack_src)->next;
 		(*stack_dst)->next = NULL;
 	}
 	else
 	{
-		printf("stack_dst is nicht leer!\n");
+		//printf("stack_dst is nicht leer!\n");
 		tmp = *stack_dst;
 		*stack_dst = *stack_src;
 		*stack_src = (*stack_src)->next;
