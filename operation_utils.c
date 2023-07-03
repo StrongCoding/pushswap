@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:03:47 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/03 07:01:17 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/03 08:53:31 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,29 @@ void	ft_swap(t_list **stack)
 	(*stack)->next = tmp;
 	//printf("after stack adress: %p stack->next: %p stack->next->next: %p\n", *stack, (*stack)->next, (*stack)->next->next);
 }
-	/*stack 1 -> stack 2 -> stack 3 -> stack 4
-	stack 2 -> stack 3 -> stack 4
-	stack 3 -> stack 4
-	stack 4 -> NULL*/
-// void	ft_push(t_l_stack stack)
-// {
-	
-// }
+
+void	ft_push(t_list **stack_src, t_list **stack_dst)
+{
+	t_list	*tmp;
+
+	if (stack_src == NULL || *stack_src == NULL)
+		return ;
+	if (*stack_dst == NULL)
+	{
+		printf("stack_dst is leer!\n");
+		*stack_dst = *stack_src;
+		*stack_src = (*stack_src)->next;
+		(*stack_dst)->next = NULL;
+	}
+	else
+	{
+		printf("stack_dst is nicht leer!\n");
+		tmp = *stack_dst;
+		*stack_dst = *stack_src;
+		*stack_src = (*stack_src)->next;
+		(*stack_dst)->next = tmp;
+	}
+}
 
 void	ft_rotate(t_list **stack)
 {
