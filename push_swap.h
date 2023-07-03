@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:38:12 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/03 14:50:50 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/03 15:47:25 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void	ft_rotate(t_list **stack);
 void	ft_reverse_rotate(t_list **stack);
 int		ft_atoi_special(char *str, int *error);
 int		*ft_new_number(int number);
+int	ft_fill_s(t_list **stack_a, t_list **stack_b, int argc, char **argv);
 
 #endif
