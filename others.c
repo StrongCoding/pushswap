@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:08:29 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/03 15:48:03 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/03 19:14:53 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	*ft_new_number(int number)
 	return (ptr_number);
 }
 
-int	ft_fill_s(t_list **stack_a, t_list **stack_b, int argc, char **argv)
+int	ft_fill_s(t_list **stack_a, int argc, char **argv, int *count)
 {
 	char	**splitted;
 	int		error;
@@ -91,6 +91,7 @@ int	ft_fill_s(t_list **stack_a, t_list **stack_b, int argc, char **argv)
 		while (++i < argc)
 			ft_lstadd_back(stack_a,
 				ft_lstnew(ft_new_number(ft_atoi_special(argv[i], &error))));
+		i--;
 	}
 	if (argc == 2)
 	{
@@ -102,5 +103,6 @@ int	ft_fill_s(t_list **stack_a, t_list **stack_b, int argc, char **argv)
 			ft_lstadd_back(stack_a,
 				ft_lstnew(ft_new_number(ft_atoi_special(splitted[i], &error))));
 	}
+	*count = i;
 	return (error);
 }
