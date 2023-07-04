@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:37:46 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/04 20:59:02 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/04 21:31:02 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,4 @@ int	main(int argc, char **argv)
 	}
 	ft_print_stacks(&stack_a, &stack_b);
 	printf("count: %i\n", count);
-
-	
 }
