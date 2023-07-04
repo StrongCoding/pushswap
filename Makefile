@@ -1,6 +1,9 @@
 NAME = push_swap
 
-SRC := main.c
+SRC := main.c \
+		operation_utils.c \
+		others.c \
+		ft_atoi_special.c
 
 OBJ := $(SRC:.c=.o)
 
