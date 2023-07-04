@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:08:29 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/03 19:14:53 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/04 21:47:26 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int	ft_fill_s(t_list **stack_a, int argc, char **argv, int *count)
 	int		i;
 
 	error = 0;
+	i = 0;
 	if (argc > 2)
 	{
 		i = 1;
