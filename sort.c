@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 11:23:16 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/04 21:19:33 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/04 21:22:22 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_sort_until_five(t_list **stack_a, t_list **stack_b, int count)
 	ft_sort_three(stack_a);
 	if (push_count == 1)
 	{
-		if (**((int **)stack_a)->content == 7)
+	if (**((int **)(*stack_a)->content) == 7)
 			printf("ist gleich\n");
 	}
 }
