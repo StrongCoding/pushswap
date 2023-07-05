@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:38:12 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/04 21:01:17 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/05 09:27:33 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		*ft_new_number(int number);
 int		ft_fill_s(t_list **stack_a, int argc, char **argv, int *count);
 void	ft_sort_three(t_list **stack);
 void	ft_sort_until_five(t_list **stack_a, t_list **stack_b, int count);
-void 	ft_sort_a_lot(t_list **stack_a, t_list **stack_b, int count);
+void	ft_sort_a_lot(t_list **stack_a, t_list **stack_b, int count);
+int		ft_sqrt_next(int nb);
 
 #endif
