@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:08:29 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/04 21:47:26 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/05 09:30:09 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,24 @@ int	ft_fill_s(t_list **stack_a, int argc, char **argv, int *count)
 	}
 	*count = i;
 	return (error);
+}
+
+int	ft_sqrt_next(int nb)
+{
+	int	i;
+
+	i = 0;
+	if (nb <= 0)
+		return (0);
+	if (nb == 1)
+		return (1);
+	while (i <= 46340)
+	{
+		if (i * i == nb)
+			return (i);
+		else if (i * i > nb && (i -1) * (i -1) < nb)
+			return (i);
+		i++;
+	}
+	return (0);
 }
