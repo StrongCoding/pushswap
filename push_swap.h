@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:38:12 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/05 09:27:33 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/05 10:42:48 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,16 @@ void	ft_sort_three(t_list **stack);
 void	ft_sort_until_five(t_list **stack_a, t_list **stack_b, int count);
 void	ft_sort_a_lot(t_list **stack_a, t_list **stack_b, int count);
 int		ft_sqrt_next(int nb);
+void	ft_swap_a(t_list **stack);
+void	ft_swap_b(t_list **stack);
+void	ft_swap_s(t_list **stack_a, t_list **stack_b);
+void	ft_push_a(t_list **stack_src, t_list **stack_dest);
+void	ft_push_b(t_list **stack_src, t_list **stack_dest);
+void	ft_rotate_a(t_list **stack);
+void	ft_rotate_b(t_list **stack);
+void	ft_rotate_r(t_list **stack_a, t_list **stack_b);
+void	ft_reverse_rotate_a(t_list **stack);
+void	ft_reverse_rotate_b(t_list **stack);
+void	ft_reverse_rotate_r(t_list **stack_a, t_list **stack_b);
 
 #endif
