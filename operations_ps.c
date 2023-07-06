@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   operations_ps.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 13:47:59 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/05 10:13:49 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/05 10:42:26 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,20 @@ void	ft_swap_s(t_list **stack_a, t_list **stack_b)
 	write(1, "ss\n", 3);
 }
 
-// pa (push a): Take the first element at the top of b and put it at the top of a.
+// pa (push a): Take the first element at the top of b
+// and put it at the top of a.
 // Do nothing if b is empty.
-void	ft_push_a(t_list **stack)
+void	ft_push_a(t_list **stack_src, t_list **stack_dest)
 {
-	ft_push(stack);
+	ft_push(stack_src, stack_dest);
 	write(1, "pa\n", 3);
 }
 
-// pb (push b): Take the first element at the top of a and put it at the top of b.
+// pb (push b): Take the first element
+// at the top of a and put it at the top of b.
 // Do nothing if a is empty.
-void	ft_push_b(t_list **stack)
+void	ft_push_b(t_list **stack_src, t_list **stack_dest)
 {
-	ft_push(stack);
+	ft_push(stack_src, stack_dest);
 	write(1, "pb\n", 3);
 }
