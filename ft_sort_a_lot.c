@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 09:50:34 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/05 21:43:08 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/06 09:50:27 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ int	ft_get_shortest_way(t_list **stack, int number)
 	while (tmp != NULL)
 	{
 		if (!(tmp->next == NULL))
-			printf("content: %i <= number: %i >= next: %i\n", *(int *)tmp->content, number, *(int *)tmp->next->content);
+			printf("content: %i <= number: %i next: %i >= number: %i\n", *(int *)tmp->content, number, *(int *)tmp->next->content, number);
 		else
 			printf("content: %i <= number: %i\n", *(int *)tmp->content, number);
 		if (!(tmp->next == NULL) && !(way_set) && (
-			(*(int *)tmp->content <= number && *(int *)tmp->next->content <= number) ||
+			(*(int *)tmp->content >= number && *(int *)tmp->next->content <= number) ||
 			(*(int *)tmp->content < *(int *)tmp->next->content && *(int *)tmp->next->content < number)
 			)
 			)
-		// wenn aktuelle kleiner als number UND größer als nächste
+		// wenn number größer als aktuelle und größer als nächste
 		{
 			printf("way found i: %i\n", i);
 			way = i;
