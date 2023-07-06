@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:37:46 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/05 09:28:12 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/06 08:42:19 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 	else
 	{
-		ft_print_stacks(&stack_a, &stack_b);
+		//ft_print_stacks(&stack_a, &stack_b);
 		if (count < 3)
 			write(2, "Error\n", 6);
 		else if (count == 3)
 		{
-			printf("sort three\n");
+			//printf("sort three\n");
 			ft_sort_three(&stack_a);
 		}
 		else if (count > 3 && count < 6)
 		{
-			printf("sort more than three\n");
+			//printf("sort more than three\n");
 			ft_sort_until_five(&stack_a, &stack_b, count);
 		}
 		else
@@ -47,5 +47,7 @@ int	main(int argc, char **argv)
 		}
 	}
 	ft_print_stacks(&stack_a, &stack_b);
-	printf("count: %i sqrtnextcount: %i\n", count, ft_sqrt_next(count));
+	//printf("count: %i sqrtnextcount: %i\n", count, ft_sqrt_next(count));
 }
+
+//cc main.c libftprintf.a operation_utils.c others.c ft_atoi_special.c sort_less.c ft_sort_a_lot.c operations_rotate.c operations_rr.c operations_ps.c
