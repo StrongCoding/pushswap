@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sort_less.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 11:23:16 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/05 10:21:33 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/05 10:39:16 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,37 +20,24 @@ void	ft_sort_three(t_list **stack)
 	if (*(int *)tmp->next->content < *(int *)tmp->content && *(int *)tmp->next->content < *(int *)tmp->next->next->content)
 	{
 		if (*(int *)tmp->content < *(int *)tmp->next->next->content)
-		{
-			ft_swap(stack);
-			printf("sa\n");
-		}
+			ft_swap_a(stack);
 		else
-		{
-			ft_rotate(stack);
-			printf("ra\n");
-		}
+			ft_rotate_a(stack);
 	}
 	else if (*(int *)tmp->next->content > *(int *)tmp->content && *(int *)tmp->next->content > *(int *)tmp->next->next->content)
 	{
 		if (*(int *)tmp->content < *(int *)tmp->next->next->content)
 		{
-			ft_reverse_rotate(stack);
-			printf("rra\n"); //remove printf
-			ft_swap(stack);
-			printf("sa\n");
+			ft_reverse_rotate_a(stack);
+			ft_swap_a(stack);
 		}
 		else
-		{
-			ft_reverse_rotate(stack);
-			printf("ra\n");
-		}
+			ft_reverse_rotate_a(stack);
 	}
 	else if (*(int *)tmp->next->content > *(int *)tmp->next->next->content)
 	{
-		ft_rotate(stack);
-		printf("ra\n"); //remove printf
-		ft_swap(stack);
-		printf("sa\n");
+		ft_rotate_a(stack);
+		ft_swap_a(stack);
 	}
 }
 
