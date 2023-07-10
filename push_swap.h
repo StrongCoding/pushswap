@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:38:12 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/10 16:30:47 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/10 19:15:26 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,8 @@ void	ft_reverse_rotate_a(t_list **stack);
 void	ft_reverse_rotate_b(t_list **stack);
 void	ft_reverse_rotate_r(t_list **stack_a, t_list **stack_b);
 int		ft_get_shortest_way(t_list **stack, int number);
+void	ft_get_highest_top_rev(t_list **stack);
+void	ft_merge_sorted_stacks(t_list **stack_a, t_list **stack_b, int count);
+void	ft_get_highest_top(t_list **stack);
 
 #endif
