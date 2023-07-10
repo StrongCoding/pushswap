@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 09:50:34 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/10 10:18:26 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/10 11:42:07 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,13 +103,11 @@ void	ft_push_sort(t_list **stack_a, t_list **stack_b, int stack_c_items)
 	i = 2;
 	ft_push_b(stack_a, stack_b);
 	ft_push_b(stack_a, stack_b);
-	//if (*(int *)(*stack_b)->content < *(int *)(*stack_b)->next->content)
-	//	ft_rotate_b(stack_b);
 	while (i++ < stack_c_items)
 	{
-		//printf("if : %i < %i\n",*(int *)(*stack_a)->content, *(int *)(*stack_b)->content);
 		way = ft_get_shortest_way(stack_b, *(int *)(*stack_a)->content);
-		//printf("way %i\n", way);
+		if (DEBUG)
+			printf("way %i\n", way);
 		if (way > 0)
 		{
 			while (way-- > 0)
@@ -152,5 +150,4 @@ void	ft_sort_a_lot(t_list **stack_a, t_list **stack_b, int count)
 	stack_count = 1;
 	stack_c_items = count / stack_count;
 	ft_push_sort(stack_a, stack_b, stack_c_items);
-	//ft_push_sort(stack_a, stack_b, count);
 }
