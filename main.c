@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:37:46 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/10 09:36:21 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/10 12:58:36 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int	main(int argc, char **argv)
 			ft_sort_a_lot(&stack_a, &stack_b, count);
 		}
 	}
-	ft_print_stacks(&stack_a, &stack_b);
+	if (DEBUG)
+		ft_print_stacks(&stack_a, &stack_b);
 	//printf("count: %i sqrtnextcount: %i\n", count, ft_sqrt_next(count));
 }
 
