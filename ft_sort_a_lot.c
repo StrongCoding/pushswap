@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 09:50:34 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/06 09:50:27 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/10 06:38:17 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@ int	ft_get_shortest_way(t_list **stack, int number)
 	int		way_set;
 
 	way_set = 0;
-	i = 0;
+	i = 1;
 	way = 0;
 	tmp = *stack;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
-	printf("erstes element ist: %i < number: %i und < %i letztes element\n", (*(int *)(*stack)->content), number, *(int *)tmp->content);
+	//printf("erstes element ist: %i < number: %i und < %i letztes element\n", (*(int *)(*stack)->content), number, *(int *)tmp->content);
+	// wenn größte oben und noch größere gepusht werden soll
 	if (!(*(int *)(*stack)->content < number && number < *(int *)tmp->content))
 	{
 		tmp = *stack;
@@ -39,15 +40,17 @@ int	ft_get_shortest_way(t_list **stack, int number)
 	while (tmp != NULL)
 	{
 		if (!(tmp->next == NULL))
+		{
 			printf("content: %i <= number: %i next: %i >= number: %i\n", *(int *)tmp->content, number, *(int *)tmp->next->content, number);
+			//printf("aktuelle %i < nächste %i UND nächste %i < number %i\n", *(int *)tmp->content, *(int *)tmp->next->content, *(int *)tmp->next->content, number);
+		}
 		else
 			printf("content: %i <= number: %i\n", *(int *)tmp->content, number);
 		if (!(tmp->next == NULL) && !(way_set) && (
-			(*(int *)tmp->content >= number && *(int *)tmp->next->content <= number) ||
-			(*(int *)tmp->content < *(int *)tmp->next->content && *(int *)tmp->next->content < number)
-			)
-			)
+			(*(int *)tmp->content <= number && *(int *)tmp->next->content >= number)
+			))
 		// wenn number größer als aktuelle und größer als nächste
+		// aktuelle ist kleiner als nächste und nächste ist kleiner als number
 		{
 			printf("way found i: %i\n", i);
 			way = i;
@@ -57,6 +60,7 @@ int	ft_get_shortest_way(t_list **stack, int number)
 		i++;
 	}
 	printf("way: %i i: %i way after: %i\n", way, i, (i - way) * -1);
+	return (way);
 	if (way < i - way)
 		return (way);
 	else
@@ -83,12 +87,12 @@ void	ft_push_sort(t_list **stack_a, t_list **stack_b, int stack_c_items)
 		if (way > 0)
 		{
 			while (way-- > 0)
-				ft_reverse_rotate_b(stack_b);
+				ft_rotate_b(stack_b);
 		}
 		else if (way < 0)
 		{
 			while (way++ < 0)
-				ft_rotate_b(stack_b);
+				ft_reverse_rotate_b(stack_b);
 		}
 		ft_push_b(stack_a, stack_b);
 		ft_print_stacks(stack_a, stack_b);
