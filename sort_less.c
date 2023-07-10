@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 11:23:16 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/10 14:51:25 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/10 16:32:00 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,30 @@ int	ft_get_shortest_way(t_list **stack, int number)
 {
 	t_list	*tmp;
 	int		i;
-	int		highest;
-	int		lowest;
+	int		min_max[2];
+//	int		highest;
+//	int		lowest;
 	int		count;
 
 	i = 0;
 	count = 1;
 	tmp = *stack;
-	highest = *(int *)tmp->content;
-	lowest = *(int *)tmp->content;
+	min_max[1] = *(int *)tmp->content;
+	min_max[0] = *(int *)tmp->content;
 	while (tmp->next != NULL)
 	{
-		if (*(int *)tmp->next->content > highest)
-			highest = *(int *)tmp->next->content;
-		if (*(int *)tmp->next->content < lowest)
-			lowest = *(int *)tmp->next->content;
+		if (*(int *)tmp->next->content > min_max[1])
+			min_max[1] = *(int *)tmp->next->content;
+		if (*(int *)tmp->next->content < min_max[0])
+			min_max[0] = *(int *)tmp->next->content;
 		count++;
 		tmp = tmp->next;
 	}
 	if (DEBUG)
-		printf("highest: %i lowest: %i\n", highest, lowest);
-	if (*(int *)(*stack)->content > *(int *)tmp->content && (number < lowest || number > highest))
+		printf("highest: %i lowest: %i\n", min_max[1], min_max[0]);
+	if (*(int *)(*stack)->content < *(int *)tmp->content && (number < min_max[0] || number > min_max[1]))
 		return (0);
-	if (*(int *)(*stack)->content < number && *(int *)tmp->content > number)
+	if (*(int *)(*stack)->content > number && *(int *)tmp->content < number)
 		return (0);
 	tmp = *stack;
 	while (tmp != NULL)
@@ -54,7 +55,7 @@ int	ft_get_shortest_way(t_list **stack, int number)
 		else
 			if (DEBUG)
 				printf("content: %i <= number: %i\n", *(int *)tmp->content, number);
-		if ((*(int *)tmp->content > number && *(int *)tmp->next->content < number) || (*(int *)tmp->content == lowest && (number < lowest || number > highest)))
+		if ((*(int *)tmp->content < number && *(int *)tmp->next->content > number) || (*(int *)tmp->content == min_max[1] && (number < min_max[0] || number > min_max[1])))
 		{
 			if (DEBUG)
 				printf("way found i: %i count: %i\n", i, count);
@@ -105,23 +106,31 @@ void	ft_sort_until_five(t_list **stack_a, t_list **stack_b, int count)
 	push_count = count - 3;
 	i = 0;
 	while (i++ < push_count)
-		ft_push_a(stack_a, stack_b);
+		ft_push_b(stack_a, stack_b);
 	ft_sort_three(stack_a);
 	i = 0;
-	ft_print_stacks(stack_a, stack_b);
-	while (i++ <= push_count)
+	if (DEBUG)
+		ft_print_stacks(stack_a, stack_b);
+	while (i++ < push_count)
 	{
 		way = ft_get_shortest_way(stack_a, *(int *)(*stack_b)->content);
-		printf("way: %i content b: %i\n", way, *(int *)(*stack_b)->content);
+		if (DEBUG)
+			printf("way: %i content b: %i\n", way, *(int *)(*stack_b)->content);
+		if (way > 0)
+			while (way-- > 0)
+				ft_rotate_a(stack_a);
+		else if (way < 0)
+			while (way++ < 0)
+				ft_reverse_rotate_a(stack_a);
+		ft_push_a(stack_b, stack_a);
+		if (DEBUG)
+			ft_print_stacks(stack_a, stack_b);
 	}
-	// if (push_count == 1)
-	// {
-	// 	if (*(int *)(*stack_b)->content < *(int *)(*stack_a)->content)
-	// 		ft_push(stack_b, stack_a);
-	// 	else if (*(int *)(*stack_b)->content > *(int *)(*stack_a)->next->next->content)
-	// 	{
-	// 		ft_push(stack_b, stack_a);
-	// 		ft_rotate(stack_a);
-	// 	}
-	// }
+	way = ft_get_shortest_way(stack_a, 2147483647);
+	if (way > 0)
+		while (way-- > 0)
+			ft_rotate_a(stack_a);
+	else if (way < 0)
+		while (way++ < 0)
+			ft_reverse_rotate_a(stack_a);
 }
