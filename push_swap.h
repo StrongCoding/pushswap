@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:38:12 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/05 10:42:48 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/10 09:35:47 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include "ft_printf/ft_printf.h"
+# define DEBUG 1
 
 void	ft_print_stack(t_list **list);
 void	ft_print_stacks(t_list **stack_a, t_list **stack_b);
