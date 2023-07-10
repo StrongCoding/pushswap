@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:37:46 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/06 08:42:19 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/10 09:36:21 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 		}
 		else
 		{
-			printf("sort a lot\n");
+			//printf("sort a lot\n");
 			ft_sort_a_lot(&stack_a, &stack_b, count);
 		}
 	}
