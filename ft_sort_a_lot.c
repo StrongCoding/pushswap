@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 09:50:34 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/10 09:52:44 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/10 10:18:26 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,26 @@ int	ft_get_shortest_way(t_list **stack, int number)
 	//printf("highest: %i\n", highest);
 	//printf("erstes element ist: %i < number: %i und < %i letztes element\n", (*(int *)(*stack)->content), number, *(int *)tmp->content);
 	// wenn größte oben und noch größere gepusht werden soll
-	if ((number > highest && *(int *)(*stack)->content == highest) || (number < lowest && *(int *)(*stack)->content == lowest))
+	if ((number > highest && *(int *)(*stack)->content == highest) || (number < lowest && *(int *)(*stack)->content == lowest)
+	|| (*(int *)(*stack)->content < number && number < *(int *)tmp->content))
 	{
 		if (DEBUG)
 			printf("highest oder lowest ist oben also way 0!\n");
 		return (0);
 	}
-	if (!(*(int *)(*stack)->content < number && number < *(int *)tmp->content))
-	{
-		tmp = *stack;
-		//printf("way soll gesucht werden!\n");
-	}
-	else
-	{
-		//printf("tmp null also way 0 also erste Stelle!\n");
-		return (0);
-	}
+	tmp = *stack;
+	// if (!(*(int *)(*stack)->content < number && number < *(int *)tmp->content))
+	// {
+	// 	tmp = *stack;
+	// 	if (DEBUG)
+	// 		printf("way soll gesucht werden!\n");
+	// }
+	// else
+	// {
+	// 	if (DEBUG)
+	// 		printf("tmp null also way 0 also erste Stelle!\n");
+	// 	return (0);
+	// }
 	while (tmp != NULL)
 	{
 		if (!(tmp->next == NULL))
@@ -121,7 +125,8 @@ void	ft_push_sort(t_list **stack_a, t_list **stack_b, int stack_c_items)
 			ft_print_stacks(stack_a, stack_b);
 	}
 	way = ft_get_shortest_way(stack_b, 2147483647);
-	//printf("way: %i\n", way);
+	if (DEBUG)
+		printf("way: %i\n", way);
 	if (way > 0)
 	{
 		while (way-- > 0)
