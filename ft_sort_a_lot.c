@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 09:50:34 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/10 11:42:07 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/10 12:23:13 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,10 @@ int	ft_get_shortest_way(t_list **stack, int number)
 {
 	t_list	*tmp;
 	int		i;
-	int		way;
-	int		way_set;
 	int		highest;
 	int		lowest;
 
-	way_set = 0;
-	i = 1;
-	way = 1;
+	i = 0;
 	tmp = *stack;
 	highest = *(int *)tmp->content;
 	lowest = *(int *)tmp->content;
@@ -35,31 +31,16 @@ int	ft_get_shortest_way(t_list **stack, int number)
 			lowest = *(int *)tmp->next->content;
 		tmp = tmp->next;
 	}
-	//printf("highest: %i\n", highest);
-	//printf("erstes element ist: %i < number: %i und < %i letztes element\n", (*(int *)(*stack)->content), number, *(int *)tmp->content);
-	// wenn größte oben und noch größere gepusht werden soll
-	if ((number > highest && *(int *)(*stack)->content == highest) || (number < lowest && *(int *)(*stack)->content == lowest)
-	|| (*(int *)(*stack)->content < number && number < *(int *)tmp->content))
-	{
-		if (DEBUG)
-			printf("highest oder lowest ist oben also way 0!\n");
+	if (DEBUG)
+		printf("highest: %i lowest: %i\n", highest, lowest);
+	if (*(int *)(*stack)->content > *(int *)tmp->content && (number < lowest || number > highest))
 		return (0);
-	}
+	if (*(int *)(*stack)->content < number && *(int *)tmp->content > number)
+		return (0);
 	tmp = *stack;
-	// if (!(*(int *)(*stack)->content < number && number < *(int *)tmp->content))
-	// {
-	// 	tmp = *stack;
-	// 	if (DEBUG)
-	// 		printf("way soll gesucht werden!\n");
-	// }
-	// else
-	// {
-	// 	if (DEBUG)
-	// 		printf("tmp null also way 0 also erste Stelle!\n");
-	// 	return (0);
-	// }
 	while (tmp != NULL)
 	{
+		i++;
 		if (!(tmp->next == NULL))
 		{
 			if (DEBUG)
@@ -70,27 +51,15 @@ int	ft_get_shortest_way(t_list **stack, int number)
 		else
 			if (DEBUG)
 				printf("content: %i <= number: %i\n", *(int *)tmp->content, number);
-		if (!(tmp->next == NULL) && !(way_set) && (
-			(*(int *)tmp->content >= number && *(int *)tmp->next->content <= number) || 
-			(number > highest && *(int *)tmp->next->content == highest) || 
-			(number < lowest && *(int *)tmp->next->content == lowest)
-			))
-		// wenn number größer als aktuelle und größer als nächste
-		// aktuelle ist kleiner als nächste und nächste ist kleiner als number
+		if ((*(int *)tmp->content > number && *(int *)tmp->next->content < number) || (*(int *)tmp->content == lowest && (number < lowest || number > highest)))
 		{
 			if (DEBUG)
 				printf("way found i: %i\n", i);
 			return (i);
 		}
 		tmp = tmp->next;
-		i++;
 	}
-	//printf("way: %i i: %i way after: %i\n", way, i, (i - way) * -1);
 	return (-1);
-	if (way < i - way)
-		return (way);
-	else
-		return ((i - way) * -1);
 }
 
 void	ft_push_sort(t_list **stack_a, t_list **stack_b, int stack_c_items)
