@@ -6,13 +6,13 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 09:50:34 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/10 12:56:35 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/10 14:52:03 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_get_shortest_way(t_list **stack, int number)
+int	ft_get_shortest_way_rev(t_list **stack, int number)
 {
 	t_list	*tmp;
 	int		i;
@@ -58,7 +58,6 @@ int	ft_get_shortest_way(t_list **stack, int number)
 		{
 			if (DEBUG)
 				printf("way found i: %i count: %i\n", i, count);
-				// 2 > 2 - 
 			if (i > count - i)
 				return ((count - i) * -1);
 			return (i);
@@ -80,36 +79,22 @@ void	ft_push_sort(t_list **stack_a, t_list **stack_b, int stack_c_items)
 	ft_push_b(stack_a, stack_b);
 	while (i++ < stack_c_items)
 	{
-		way = ft_get_shortest_way(stack_b, *(int *)(*stack_a)->content);
-		if (DEBUG)
-			printf("way %i\n", way);
+		way = ft_get_shortest_way_rev(stack_b, *(int *)(*stack_a)->content);
 		if (way > 0)
-		{
 			while (way-- > 0)
 				ft_rotate_b(stack_b);
-		}
 		else if (way < 0)
-		{
 			while (way++ < 0)
 				ft_reverse_rotate_b(stack_b);
-		}
 		ft_push_b(stack_a, stack_b);
-		if (DEBUG == 1)
-			ft_print_stacks(stack_a, stack_b);
 	}
-	way = ft_get_shortest_way(stack_b, 2147483647);
-	if (DEBUG)
-		printf("way: %i\n", way);
+	way = ft_get_shortest_way_rev(stack_b, 2147483647);
 	if (way > 0)
-	{
 		while (way-- > 0)
 			ft_rotate_b(stack_b);
-	}
 	else if (way < 0)
-	{
 		while (way++ < 0)
 			ft_reverse_rotate_b(stack_b);
-	}
 	i = 0;
 	while (i++ < stack_c_items)
 		ft_push_a(stack_b, stack_a);
