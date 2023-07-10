@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 09:50:34 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/10 12:23:13 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/10 12:56:35 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ int	ft_get_shortest_way(t_list **stack, int number)
 	int		i;
 	int		highest;
 	int		lowest;
+	int		count;
 
 	i = 0;
+	count = 1;
 	tmp = *stack;
 	highest = *(int *)tmp->content;
 	lowest = *(int *)tmp->content;
@@ -29,6 +31,7 @@ int	ft_get_shortest_way(t_list **stack, int number)
 			highest = *(int *)tmp->next->content;
 		if (*(int *)tmp->next->content < lowest)
 			lowest = *(int *)tmp->next->content;
+		count++;
 		tmp = tmp->next;
 	}
 	if (DEBUG)
@@ -54,12 +57,15 @@ int	ft_get_shortest_way(t_list **stack, int number)
 		if ((*(int *)tmp->content > number && *(int *)tmp->next->content < number) || (*(int *)tmp->content == lowest && (number < lowest || number > highest)))
 		{
 			if (DEBUG)
-				printf("way found i: %i\n", i);
+				printf("way found i: %i count: %i\n", i, count);
+				// 2 > 2 - 
+			if (i > count - i)
+				return ((count - i) * -1);
 			return (i);
 		}
 		tmp = tmp->next;
 	}
-	return (-1);
+	return (0);
 }
 
 void	ft_push_sort(t_list **stack_a, t_list **stack_b, int stack_c_items)
@@ -85,7 +91,7 @@ void	ft_push_sort(t_list **stack_a, t_list **stack_b, int stack_c_items)
 		else if (way < 0)
 		{
 			while (way++ < 0)
-				ft_rotate_b(stack_b);
+				ft_reverse_rotate_b(stack_b);
 		}
 		ft_push_b(stack_a, stack_b);
 		if (DEBUG == 1)
