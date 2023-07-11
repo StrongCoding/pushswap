@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:37:46 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/10 19:26:24 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/11 10:30:13 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,17 @@ int	main(int argc, char **argv)
 		{
 			if (DEBUG)
 				printf("sort 500\n");
-			ft_sort_a_lot(&stack_a, &stack_b, count);
+			ft_sort_five_hundred(&stack_a, &stack_b, count);
 		}
 		else
+		{
 			if (DEBUG)
 				printf("sort a lot\n");
 			ft_sort_a_lot(&stack_a, &stack_b, count);
+		}
 	}
-	if (DEBUG)
-		ft_print_stacks(&stack_a, &stack_b);
+	//if (DEBUG)
+	//	ft_print_stacks(&stack_a, &stack_b);
 	//printf("count: %i sqrtnextcount: %i\n", count, ft_sqrt_next(count));
 }
 
