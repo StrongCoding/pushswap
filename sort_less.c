@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 11:23:16 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/10 16:32:00 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/11 18:58:51 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int	ft_get_shortest_way(t_list **stack, int number)
 	t_list	*tmp;
 	int		i;
 	int		min_max[2];
-//	int		highest;
-//	int		lowest;
 	int		count;
 
 	i = 0;
