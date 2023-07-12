@@ -6,11 +6,15 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:37:46 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/12 17:59:44 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/12 18:29:50 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+int ft_yes(t_list **stack, int argc, char **argv, int *count)
+{
+	return (0);
+}
 
 int	main(int argc, char **argv)
 {
@@ -29,7 +33,7 @@ int	main(int argc, char **argv)
 	{
 		//ft_print_stacks(&stack_a, &stack_b);
 		if (count < 3)
-			write(2, "Error\n", 6);
+			write(2, "Error!\n", 7);
 		else if (count == 3)
 		{
 			if (DEBUG)
@@ -66,8 +70,8 @@ int	main(int argc, char **argv)
 				printf("sort a lot\n");
 			ft_sort_a_lot(&stack_a, &stack_b, count);
 		}
-		ft_lstclear(&stack_a, free);
 	}
+	ft_lstclear(&stack_a, free);
 	//if (DEBUG)
 	//	ft_print_stacks(&stack_a, &stack_b);
 	//printf("count: %i sqrtnextcount: %i\n", count, ft_sqrt_next(count));
