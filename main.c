@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:37:46 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/11 10:30:13 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/12 17:35:30 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int	main(int argc, char **argv)
 				printf("sort a lot\n");
 			ft_sort_a_lot(&stack_a, &stack_b, count);
 		}
+		ft_lstclear(&stack_a,free);
 	}
 	//if (DEBUG)
 	//	ft_print_stacks(&stack_a, &stack_b);
@@ -76,3 +77,5 @@ int	main(int argc, char **argv)
 // "; ./a.out $ARG | ./checker_Mac $ARG
 
 // ARG="515 -9805 52 1476 -4131"; ./a.out $ARG | wc -l
+// valgrind --leak-check=full -s ./a.out ARG
+// 62 blocks
