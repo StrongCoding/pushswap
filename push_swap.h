@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:38:12 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/11 12:22:55 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/11 14:55:35 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_merge_sorted_stacks(t_list **stack_a, t_list **stack_b, int count);
 void	ft_get_highest_top(t_list **stack);
 void	ft_push_sort(t_list **stack_a, t_list **stack_b, int stack_c_items);
 void	ft_sort_five_hundred(t_list **stack_a, t_list **stack_b, int count);
-int	ft_get_shortest_potion_way(t_list **stack, int number, int potion_count);
+int		ft_get_shortest_potion_way(t_list **stack, int number, int potion_count);
 void	ft_merge_sorted_potions(t_list **stack_a, t_list **stack_b, int potion_count);
 void	ft_push_sort_not_reverse(t_list **stack_a, t_list **stack_b, int stack_c_items);
 
