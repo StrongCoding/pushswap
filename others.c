@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:08:29 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/05 09:30:09 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/12 17:20:32 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,13 @@ int	ft_fill_s(t_list **stack_a, int argc, char **argv, int *count)
 		splitted = ft_split(argv[1], ' ');
 		*stack_a = ft_lstnew(
 				ft_new_number(ft_atoi_special(splitted[0], &error)));
+		free(splitted[0]);
 		while (splitted[++i])
+		{
 			ft_lstadd_back(stack_a,
 				ft_lstnew(ft_new_number(ft_atoi_special(splitted[i], &error))));
+			free(splitted[i]);	
+		}
 	}
 	*count = i;
 	return (error);
