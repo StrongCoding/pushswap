@@ -6,58 +6,53 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 09:50:34 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/11 12:21:31 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/17 16:39:51 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_get_shortest_way_rev(t_list **stack, int number)
+int	ft_get_mm(int *min, int *max, t_list **stack)
 {
 	t_list	*tmp;
-	int		i;
-	int		highest;
-	int		lowest;
 	int		count;
 
-	i = 0;
 	count = 1;
 	tmp = *stack;
-	highest = *(int *)tmp->content;
-	lowest = *(int *)tmp->content;
+	*max = *(int *)tmp->content;
+	*min = *(int *)tmp->content;
 	while (tmp->next != NULL)
 	{
-		if (*(int *)tmp->next->content > highest)
-			highest = *(int *)tmp->next->content;
-		if (*(int *)tmp->next->content < lowest)
-			lowest = *(int *)tmp->next->content;
+		if (*(int *)tmp->next->content > *max)
+			*max = *(int *)tmp->next->content;
+		if (*(int *)tmp->next->content < *min)
+			*min = *(int *)tmp->next->content;
 		count++;
 		tmp = tmp->next;
 	}
-	if (DEBUG)
-		printf("highest: %i lowest: %i\n", highest, lowest);
-	if (*(int *)(*stack)->content > *(int *)tmp->content && (number < lowest || number > highest))
-		return (0);
-	if (*(int *)(*stack)->content < number && *(int *)tmp->content > number)
+	return (count);
+}
+
+int	ft_sway_rev(t_list **stack, int n)
+{
+	t_list	*tmp;
+	int		i;
+	int		mm[2];
+	int		count;
+
+	i = 0;
+	count = ft_get_mm(&mm[0], &mm[1], stack);
+	tmp = ft_lstlast(*stack);
+	if ((*(int *)(*stack)->content > *(int *)tmp->content && (n < mm[0]
+			|| n > mm[1])) || (*(int *)(*stack)->content < n
+				&& *(int *)tmp->content > n))
 		return (0);
 	tmp = *stack;
-	while (tmp != NULL)
+	while (tmp != NULL && ++i)
 	{
-		i++;
-		if (!(tmp->next == NULL))
+		if ((*(int *)tmp->content > n && *(int *)tmp->next->content < n)
+			|| (*(int *)tmp->content == mm[0] && (n < mm[0] || n > mm[1])))
 		{
-			// if (DEBUG)
-			// 	printf("content: %i <= number: %i next: %i >= number: %i\n", *(int *)tmp->content, number, *(int *)tmp->next->content, number);
-			// if (DEBUG)
-			// 	printf("aktuelle %i < nächste %i UND nächste %i < number %i\n", *(int *)tmp->content, *(int *)tmp->next->content, *(int *)tmp->next->content, number);
-		}	
-		else
-			if (DEBUG)
-				printf("content: %i <= number: %i\n", *(int *)tmp->content, number);
-		if ((*(int *)tmp->content > number && *(int *)tmp->next->content < number) || (*(int *)tmp->content == lowest && (number < lowest || number > highest)))
-		{
-			if (DEBUG)
-				printf("way found i: %i count: %i\n", i, count);
 			if (i > count - i)
 				return ((count - i) * -1);
 			return (i);
@@ -79,7 +74,7 @@ void	ft_push_sort(t_list **stack_a, t_list **stack_b, int stack_c_items)
 	ft_push_b(stack_a, stack_b);
 	while (i++ < stack_c_items)
 	{
-		way = ft_get_shortest_way_rev(stack_b, *(int *)(*stack_a)->content);
+		way = ft_sway_rev(stack_b, *(int *)(*stack_a)->content);
 		if (way > 0)
 			while (way-- > 0)
 				ft_rotate_b(stack_b);
@@ -88,10 +83,6 @@ void	ft_push_sort(t_list **stack_a, t_list **stack_b, int stack_c_items)
 				ft_reverse_rotate_b(stack_b);
 		ft_push_b(stack_a, stack_b);
 	}
-	//ft_get_highest_top_rev(stack_b);
-	// i = 0;
-	// while (i++ < stack_c_items)
-	// 	ft_push_a(stack_b, stack_a);
 }
 
 void	ft_sort_a_lot(t_list **stack_a, t_list **stack_b, int count)
@@ -114,43 +105,11 @@ void	ft_get_highest_top_rev(t_list **stack)
 {
 	int	way;
 
-	way = ft_get_shortest_way_rev(stack, 2147483647);
+	way = ft_sway_rev(stack, 2147483647);
 	if (way > 0)
 		while (way-- > 0)
 			ft_rotate_b(stack);
 	else if (way < 0)
 		while (way++ < 0)
 			ft_reverse_rotate_b(stack);
-}
-
-void	ft_get_highest_top(t_list **stack)
-{
-	int	way;
-
-	way = ft_get_shortest_way(stack, 2147483647);
-	if (way > 0)
-		while (way-- > 0)
-			ft_rotate_a(stack);
-	else if (way < 0)
-		while (way++ < 0)
-			ft_reverse_rotate_a(stack);
-}
-
-void	ft_merge_sorted_stacks(t_list **stack_a, t_list **stack_b, int count)
-{
-	int	i;
-	int	way;
-
-	i = 0;
-	while (i++ < count)
-	{
-		way = ft_get_shortest_way(stack_a, *(int *)(*stack_b)->content);
-		if (way > 0)
-			while (way-- > 0)
-				ft_rotate_a(stack_a);
-		else if (way < 0)
-			while (way++ < 0)
-				ft_reverse_rotate_a(stack_a);
-		ft_push_a(stack_b, stack_a);
-	}
 }
