@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 11:23:16 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/17 17:29:34 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/17 17:45:57 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,6 @@ void	ft_sort_until_five(t_list **stack_a, t_list **stack_b, int count)
 		ft_push_b(stack_a, stack_b);
 	ft_sort_three(*stack_a);
 	i = 0;
-	if (DEBUG)
-		ft_print_stacks(stack_a, stack_b);
 	while (i++ < push_count)
 	{
 		way = ft_get_shortest_way(stack_a, *(int *)(*stack_b)->content);
