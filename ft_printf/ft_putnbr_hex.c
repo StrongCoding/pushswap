@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 10:00:11 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/06/20 09:31:59 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/17 18:06:09 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	ft_putnbr_hex(unsigned int nbr, char *base)
 	i = 0;
 	result[i] = base[nbr % 16];
 	while ((nbr / 16))
-	{	
+	{
 		i++;
 		nbr = nbr / 16;
 		result[i] = base[nbr % 16];

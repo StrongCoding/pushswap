@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 10:00:11 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/06/20 09:31:10 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/17 18:06:24 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	ft_rev_int_tab(char *tab, int size)
 	{
 		write(1, &tab[i], 1);
 		i++;
-	}	
+	}
 }
 
 static void	ft_ini_array(char *array)
@@ -71,7 +71,7 @@ int	ft_putnbr_p(unsigned long nbr, char *base)
 	else
 		result[i] = base[nbr % ft_length(base)];
 	while ((nbr / ft_length(base)))
-	{	
+	{
 		i++;
 		nbr = nbr / ft_length(base);
 		if (nbr < 0)

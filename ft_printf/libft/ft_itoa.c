@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:52:58 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/05/31 08:56:43 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/17 18:06:38 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	ft_handle_negativ(char *s, int size, int n)
 	{
 		*(s + size - 1) = (n % 10) + '0';
 		n = n / 10;
-			size--;
+		size--;
 	}
 	*(s + size2 - 1) = 0;
 }
