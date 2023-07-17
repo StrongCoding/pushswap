@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 11:23:16 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/17 17:45:57 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/17 17:48:46 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	ft_get_shortest_way(t_list **stack, int n)
 	return (0);
 }
 
+// hard coded sorting three in shortest way
 void	ft_sort_three(t_list *stack)
 {
 	if (*(int *)stack->next->content < *(int *)stack->content && 

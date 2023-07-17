@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:37:46 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/17 17:36:42 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/17 17:53:47 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ int	main(int argc, char **argv)
 	ft_lstclear(&stack_a, free);
 }
 
-//cc main.c libftprintf.a operation_utils.c others.c ft_atoi_special.c
+// cc main.c libftprintf.a operation_utils.c others.c ft_atoi_special.c
 // sort_less.c ft_sort_a_lot.c operations_rotate.c operations_rr.c
-// operations_ps.c
+// operations_ps.c ft_sort_five_hundred.c sort_a_lot_utils.c
 // "; ./a.out $ARG | ./checker_Mac $ARG
 // ARG="515 -9805 52 1476 -4131"; ./a.out $ARG | wc -l
 // valgrind --leak-check=full -s ./a.out ARG

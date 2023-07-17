@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:38:12 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/17 17:46:01 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/17 17:59:44 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include <unistd.h>
 # include "ft_printf/ft_printf.h"
 
-void	ft_print_stack(t_list **list);
-void	ft_print_stacks(t_list **stack_a, t_list **stack_b);
 void	ft_swap(t_list **stack);
 void	ft_push(t_list **stack_src, t_list **stack_dst);
 void	ft_rotate(t_list **stack);
@@ -30,7 +28,6 @@ int		ft_fill_s(t_list **stack_a, int argc, char **argv, int *count);
 void	ft_sort_three(t_list *stack);
 void	ft_sort_until_five(t_list **stack_a, t_list **stack_b, int count);
 void	ft_sort_a_lot(t_list **stack_a, t_list **stack_b, int count);
-int		ft_sqrt_next(int nb);
 void	ft_swap_a(t_list **stack);
 void	ft_swap_b(t_list **stack);
 void	ft_swap_s(t_list **stack_a, t_list **stack_b);
