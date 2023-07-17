@@ -33,6 +33,8 @@ SRC := ft_atoi.c \
 		ft_strtrim.c \
 		ft_substr.c \
 		ft_tolower.c \
+		get_next_line_bonus.c \
+		get_next_line_utils_bonus.c \
 		ft_toupper.c
 
 BNS_SRC := ft_lstnew_bonus.c \
