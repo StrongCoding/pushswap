@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 09:50:34 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/18 16:35:36 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/18 17:46:00 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,16 +89,21 @@ void	ft_sort_a_lot(t_list **stack_a, t_list **stack_b, int count)
 {
 	int	stack_count;
 	int	stack_c_items;
+	int	stack_odd;
 	int	i;
 
 	i = 0;
 	stack_count = 2;
 	stack_c_items = count / stack_count;
+	stack_odd = stack_c_items + (count % stack_count);
 	ft_push_sort(stack_a, stack_b, stack_c_items);
 	//ft_print_stacks(stack_a, stack_b);
 	ft_get_highest_top_rev(stack_b);
 	//ft_print_stacks(stack_a, stack_b);
-	ft_sort_until_five(stack_a, stack_b, stack_c_items);
+	if (!count % stack_count)
+		ft_sort_until_five(stack_a, stack_b, stack_c_items);
+	else
+		ft_sort_until_five(stack_a, stack_b, stack_odd);
 	//ft_print_stacks(stack_a, stack_b);
 	ft_merge_sorted_stacks(stack_a, stack_b, stack_c_items);
 	//ft_print_stacks(stack_a, stack_b);
