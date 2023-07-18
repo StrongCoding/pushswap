@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 14:35:25 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/03 14:41:49 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/18 21:37:02 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_set_error(int *error)
 	return (0);
 }
 
-int	ft_atoi_special(char *str, int *error)
+int	ft_atoi_s(char *str, int *error)
 {
 	int		i;
 	int		count_minus;
