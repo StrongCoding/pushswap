@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:37:46 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/17 21:09:34 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/18 16:25:31 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_pick_sort(t_list **stack_a, t_list **stack_b, int count)
 	if (count < 2)
 	{
 		write(2, "Error!\n", 7);
+		ft_printf("Error! Count: %i\n", count);
 		exit(1);
 	}
 	else if (count == 2)
@@ -50,7 +51,7 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 	else
 	{
-		ft_print_stacks(&stack_a, &stack_b);
+		//ft_print_stacks(&stack_a, &stack_b);
 		ft_pick_sort(&stack_a, &stack_b, count);
 		// ft_push_b(&stack_a, &stack_b);
 		// ft_push_b(&stack_a, &stack_b);

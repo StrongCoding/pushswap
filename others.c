@@ -6,13 +6,13 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:08:29 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/17 16:59:01 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/18 15:28:00 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_fill_args(t_list **stack_a, int argc, char **argv, int *error)
+int	ft_fill_args(t_list **stack_a, int argc, char **argv, int *error)
 {
 	int	i;
 
@@ -22,6 +22,7 @@ void	ft_fill_args(t_list **stack_a, int argc, char **argv, int *error)
 		ft_lstadd_back(stack_a,
 			ft_lstnew(ft_new_number(ft_atoi_special(argv[i], error))));
 	i--;
+	return (i);
 }
 
 int	*ft_new_number(int number)
@@ -42,7 +43,7 @@ int	ft_fill_s(t_list **stack_a, int argc, char **argv, int *c)
 	error = 0;
 	i = 0;
 	if (argc > 2)
-		ft_fill_args(stack_a, argc, argv, &error);
+		i = ft_fill_args(stack_a, argc, argv, &error);
 	if (argc == 2)
 	{
 		i = 0;
