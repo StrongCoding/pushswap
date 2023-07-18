@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 11:23:16 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/17 17:48:46 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/18 17:13:52 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,31 +60,32 @@ int	ft_get_shortest_way(t_list **stack, int n)
 }
 
 // hard coded sorting three in shortest way
-void	ft_sort_three(t_list *stack)
+void	ft_sort_three(t_list **stack)
 {
-	if (*(int *)stack->next->content < *(int *)stack->content && 
-		*(int *)stack->next->content < *(int *)stack->next->next->content)
+	if (*(int *)(*stack)->next->content < *(int *)(*stack)->content && 
+		*(int *)(*stack)->next->content < *(int *)(*stack)->next->next->content)
 	{
-		if (*(int *)stack->content < *(int *)stack->next->next->content)
-			ft_swap_a(&stack);
+		if (*(int *)(*stack)->content < *(int *)(*stack)->next->next->content)
+			ft_swap_a(stack);
 		else
-			ft_rotate_a(&stack);
+			ft_rotate_a(stack);
 	}
-	else if (*(int *)stack->next->content > *(int *)stack->content && 
-		*(int *)stack->next->content > *(int *)stack->next->next->content)
+	else if (*(int *)(*stack)->next->content > *(int *)(*stack)->content && 
+		*(int *)(*stack)->next->content > *(int *)(*stack)->next->next->content)
 	{
-		if (*(int *)stack->content < *(int *)stack->next->next->content)
+		if (*(int *)(*stack)->content < *(int *)(*stack)->next->next->content)
 		{
-			ft_reverse_rotate_a(&stack);
-			ft_swap_a(&stack);
+			ft_reverse_rotate_a(stack);
+			ft_swap_a(stack);
 		}
 		else
-			ft_reverse_rotate_a(&stack);
+			ft_reverse_rotate_a(stack);
 	}
-	else if (*(int *)stack->next->content > *(int *)stack->next->next->content)
+	else if (*(int *)(*stack)->next->content >
+		*(int *)(*stack)->next->next->content)
 	{
-		ft_rotate_a(&stack);
-		ft_swap_a(&stack);
+		ft_rotate_a(stack);
+		ft_swap_a(stack);
 	}
 }
 
@@ -98,7 +99,7 @@ void	ft_sort_until_five(t_list **stack_a, t_list **stack_b, int count)
 	i = 0;
 	while (i++ < push_count)
 		ft_push_b(stack_a, stack_b);
-	ft_sort_three(*stack_a);
+	ft_sort_three(stack_a);
 	i = 0;
 	while (i++ < push_count)
 	{
