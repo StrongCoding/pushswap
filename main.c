@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:37:46 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/18 21:39:33 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/18 21:46:18 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,4 @@ int	main(int argc, char **argv)
 // "; ./a.out $ARG | ./checker_Mac $ARG
 // ARG="515 -9805 52 1476 -4131"; ./a.out $ARG | wc -l
 // valgrind --leak-check=full -s ./a.out 3 1 2
-// 62 blocks
+// 61 blocks
