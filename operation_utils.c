@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:03:47 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/04 16:53:06 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/18 16:24:05 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	ft_swap(t_list **stack)
 	if (stack == NULL || (*stack)->next == NULL)
 		return ;
 	tmp = *stack;
+	// tmp->next = (*stack)->next;
 	*stack = (*stack)->next;
-	tmp->next = (*stack)->next;
-	(*stack)->next = tmp;
+	// (*stack)->next = tmp;
 }
 
 void	ft_push(t_list **stack_src, t_list **stack_dst)
