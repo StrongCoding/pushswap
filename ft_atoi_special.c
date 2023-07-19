@@ -6,11 +6,9 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 14:35:25 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/19 10:34:40 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/19 11:21:55 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "push_swap.h"
 
 #include "push_swap.h"
 
