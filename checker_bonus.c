@@ -6,20 +6,22 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 18:44:42 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/19 17:53:17 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/19 18:40:35 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_check_sorted_print(t_list **stack_a, t_list **stack_b)
+void	ft_check_sorted_print(int *error, t_list **stack_a, t_list **stack_b)
 {
-	if (ft_lstsize(*stack_b))
-		write(2, "KO\n", 4);
+	if (*error / 10)
+		write(2, "Error\n", 6);
+	else if (ft_lstsize(*stack_b))
+		write(1, "KO\n", 4);
 	else if (ft_check_sorted(stack_a))
-		write(2, "OK\n", 3);
+		write(1, "OK\n", 3);
 	else
-		write(2, "KO\n", 3);
+		write(1, "KO\n", 3);
 }
 
 void	ft_double_commands(char *s, t_list **stack_a, t_list **stack_b, int len)
@@ -66,11 +68,11 @@ int	ft_check_statement(char *s, int *error, t_list **stack_a, t_list **stack_b)
 		!ft_strncmp("ss\n", s, len))
 		ft_double_commands(s, stack_a, stack_b, len);
 	else
-		*error = 1;
+		*error += 10;
 	return (0);
 }
 
-void	ft_get_inputs(int *count, t_list **stack_a, t_list **stack_b)
+void	ft_get_inputs(int *error, t_list **stack_a, t_list **stack_b)
 {
 	char	*input;
 
@@ -78,7 +80,8 @@ void	ft_get_inputs(int *count, t_list **stack_a, t_list **stack_b)
 	input = get_next_line(0);
 	while (input && *input != '\n')
 	{
-		ft_check_statement(input, count, stack_a, stack_b);
+		ft_check_statement(input, error, stack_a, stack_b);
+		free(input);
 		input = get_next_line(0);
 	}
 	free(input);
@@ -89,26 +92,25 @@ int	main(int argc, char **argv)
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		count;
+	int		error;
 
+	error = 0;
 	count = 0;
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc < 2)
 		return (0);
 	else if (ft_fill_s(&stack_a, argc, argv, &count))
-		write(2, "Error\n", 6);
-	else if (count < 2)
-		write(2, "Error\n", 6);
+		error += 10;
+	else if (count < 2 || !ft_check_double(&stack_a))
+		error += 10;
 	else if (ft_check_sorted(&stack_a))
+	{
+		ft_free_stacks(&stack_a, &stack_b);
 		return (0);
-	else if (!ft_check_double(&stack_a))
-		write(2, "Error\n", 6);
+	}
 	else
-		ft_get_inputs(&count, &stack_a, &stack_b);
-	if (count < 2)
-		write(2, "Error\n", 6);
-	else
-		ft_check_sorted_print(&stack_a, &stack_b);
-	ft_lstclear(&stack_a, free);
-	ft_lstclear(&stack_b, free);
+		ft_get_inputs(&error, &stack_a, &stack_b);
+	ft_check_sorted_print(&error, &stack_a, &stack_b);
+	ft_free_stacks(&stack_a, &stack_b);
 }
