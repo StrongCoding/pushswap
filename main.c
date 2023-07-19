@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:37:46 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/19 11:23:26 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/19 18:15:20 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ int	main(int argc, char **argv)
 	else if (count < 2)
 		write(2, "Error\n", 6);
 	else if (ft_check_sorted(&stack_a))
+	{
+		ft_lstclear(&stack_a, free);
 		return (0);
+	}
 	else if (!ft_check_double(&stack_a))
 		write(2, "Error\n", 6);
 	else
