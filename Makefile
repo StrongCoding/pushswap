@@ -2,7 +2,6 @@ NAME = push_swap
 NAME_BNS = checker
 
 SRC := main.c \
-		operation_utils.c \
 		sort_less.c \
 		ft_sort_a_lot.c \
 		operations_rotate.c \
@@ -16,12 +15,13 @@ OBJ := $(SRC:.c=.o)
 
 BOTH_SRC := errors.c \
 		others.c \
+		operation_utils.c \
 		ft_atoi_special.c
 
 BOTH_OBJ := $(BOTH_SRC:.c=.o)
 
-BNS_SRC := checker_bonus.c \
-		execute_commands_bonus.c
+BNS_SRC := checker_bonus.c
+
 OBJ := $(SRC:.c=.o)
 
 BNS_OBJ := $(BNS_SRC:.c=.o)
@@ -31,7 +31,7 @@ CCFLAGS := -Wall -Wextra -Werror
 
 .PHONY: all bonus clean fclean re
 
-all:$(NAME)
+all:$(NAME) bonus
 
 $(NAME): $(OBJ) $(BOTH_OBJ)
 	$(MAKE) -C ./ft_printf
