@@ -1,11 +1,27 @@
 NAME = push_swap
+NAME_BNS = checker
 
 SRC := main.c \
 		operation_utils.c \
 		others.c \
+		sort_less.c \
+		ft_sort_a_lot.c \
+		operations_rotate.c \
+		operations_rr.c \
+		operations_ps.c \
+		ft_sort_two.c \
+		ft_sort_five_hundred.c \
+		sort_a_lot_utils.c \
+		errors.c \
 		ft_atoi_special.c
 
 OBJ := $(SRC:.c=.o)
+
+BNS_SRC := checker_bonus.c \
+		execute_commands.c
+OBJ := $(SRC:.c=.o)
+
+BNS_OBJ := $(BNS_SRC:.c=.o)
 
 CFIL := $(SRC:.c=)
 CCFLAGS := -Wall -Wextra -Werror
@@ -19,6 +35,12 @@ $(NAME): $(OBJ)
 	 cc $(CCFLAGS) $(OBJ) ./ft_printf/libftprintf.a -o $(NAME)
 $(OBJ):
 	cc -c $(SRC) $(CCFLAGS)
+
+bonus:$(BNS_OBJ) $(OBJ)
+	cc $(CCFLAGS) $(BNS_OBJ) $(OBJ) ./ft_printf/libftprintf.a -o $(NAME_BNS)
+
+$(BNS_OBJ):
+	cc -c $(BNS_SRC) $(CCFLAGS)
 clean:
 	$(MAKE) clean -C ./ft_printf
 	rm -f $(OBJ) $(BNS_OBJ)
