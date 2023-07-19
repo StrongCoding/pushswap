@@ -20,8 +20,7 @@ BOTH_SRC := errors.c \
 
 BOTH_OBJ := $(BOTH_SRC:.c=.o)
 
-BNS_SRC := checker_bonus.c \
-		checker_utils_bonus.c
+BNS_SRC := checker_bonus.c
 
 OBJ := $(SRC:.c=.o)
 
