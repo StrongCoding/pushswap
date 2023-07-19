@@ -21,7 +21,7 @@ BOTH_SRC := errors.c \
 BOTH_OBJ := $(BOTH_SRC:.c=.o)
 
 BNS_SRC := checker_bonus.c \
-		execute_commands.c
+		execute_commands_bonus.c
 OBJ := $(SRC:.c=.o)
 
 BNS_OBJ := $(BNS_SRC:.c=.o)
