@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:37:46 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/19 20:17:00 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/19 20:28:54 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 	ft_lstclear(&stack_a, free);
 }
 
-// "; ./a.out $ARG | ./checker_Mac $ARG
+// "; ./push_swap $ARG | ./checker_Mac $ARG
 // ARG="515 -9805 52 1476 -4131"; ./a.out $ARG | wc -l
 // valgrind --leak-check=full -s ./a.out 3 1 2
 // 61 blocks
