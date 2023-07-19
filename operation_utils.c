@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:03:47 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/18 17:15:08 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/07/19 20:02:22 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_swap(t_list **stack)
 {
 	t_list	*tmp;
 
-	if (stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
@@ -50,7 +50,7 @@ void	ft_rotate(t_list **stack)
 	t_list	*tmp;
 	t_list	*tmp2;
 
-	if (stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return ;
 	tmp = *stack;
 	tmp2 = *stack;
@@ -66,7 +66,7 @@ void	ft_reverse_rotate(t_list **stack)
 	t_list	*tmp;
 	t_list	*tmp2;
 
-	if (stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return ;
 	tmp = *stack;
 	tmp2 = *stack;
