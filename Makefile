@@ -18,6 +18,9 @@ SRC := main.c \
 OBJ := $(SRC:.c=.o)
 
 BNS_SRC := checker_bonus.c \
+		errors.c \
+		others.c \
+		ft_atoi_special.c \
 		execute_commands.c
 OBJ := $(SRC:.c=.o)
 
@@ -37,7 +40,7 @@ $(OBJ):
 	cc -c $(SRC) $(CCFLAGS)
 
 bonus:$(BNS_OBJ) $(OBJ)
-	cc $(CCFLAGS) $(BNS_OBJ) $(OBJ) ./ft_printf/libftprintf.a -o $(NAME_BNS)
+	cc $(CCFLAGS) $(BNS_OBJ) ./ft_printf/libftprintf.a -o $(NAME_BNS)
 
 $(BNS_OBJ):
 	cc -c $(BNS_SRC) $(CCFLAGS)
@@ -46,5 +49,6 @@ clean:
 	rm -f $(OBJ) $(BNS_OBJ)
 fclean: clean
 	$(MAKE) fclean -C ./ft_printf
-	rm -f $(NAME) 
+	rm -f $(NAME)
+	rm -f $(NAME_BNS)
 re: fclean all
