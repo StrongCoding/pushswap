@@ -32,13 +32,15 @@ CCFLAGS := -Wall -Wextra -Werror
 
 .PHONY: all bonus clean fclean re
 
-all:$(NAME)
+
 
 $(NAME): $(OBJ) $(BOTH_OBJ)
 	$(MAKE) -C ./ft_printf
 	 cc $(CCFLAGS) $(OBJ) $(BOTH_OBJ) ./ft_printf/libftprintf.a -o $(NAME)
 $(OBJ):
 	cc -c $(SRC) $(CCFLAGS)
+
+all:$(NAME) bonus
 
 bonus:$(BNS_OBJ) $(BOTH_OBJ)
 	$(MAKE) -C ./ft_printf
